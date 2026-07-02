@@ -14,24 +14,14 @@ OUTPUT_DIR = './models'
 
 CALIB_DS_ID = 'HuggingFaceH4/ultrachat_200k'
 CALIB_DS_SPLIT = 'train_sft'
-CALIB_MAX_SEQ_LENGTH = 4096
-CALIB_NUM_SAMPLES = 512
+CALIB_MAX_SEQ_LENGTH = 2048
+CALIB_NUM_SAMPLES = 128
 
 
 def main():
     model = AutoModelForMultimodalLM.from_pretrained(
         MODEL_ID, dtype=torch.bfloat16, 
         device_map='auto',
-        max_memory={
-            0: "70GiB",
-            1: "70GiB",
-            2: "70GiB",
-            3: "70GiB",
-            4: "70GiB",
-            5: "70GiB",
-            6: "70GiB",
-            7: "70GiB",
-        },
     )
     processor = AutoProcessor.from_pretrained(MODEL_ID)
     tokenizer = processor.tokenizer

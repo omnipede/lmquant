@@ -3,8 +3,8 @@
 #SBATCH --comment="AWQ quantization"
 #SBATCH --nodes=1
 #SBATCH --nodelist=cubox01,cubox03
-#SBATCH --gres=gpu:8
-#SBATCH --cpus-per-task=64
+#SBATCH --gres=gpu:4
+#SBATCH --cpus-per-task=112
 #SBATCH --mem-per-cpu=4G
 #SBATCH --output=logs/quant_awq_%j.log
 
