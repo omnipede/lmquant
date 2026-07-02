@@ -1,0 +1,5 @@
+attn_backend: VANILLA
+cuda_graph_config: null
+enable_chunked_prefill: false
+kv_cache_config:
+  enable_block_reuse: false
