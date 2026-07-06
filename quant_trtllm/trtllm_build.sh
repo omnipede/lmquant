@@ -2,7 +2,7 @@
 #SBATCH --job-name=trt_bd
 #SBATCH --comment="TensorRT-LLM engine build"
 #SBATCH --nodes=1
-#SBATCH --nodelist=cubox11
+#SBATCH --nodelist=cubox02,cubox03,cubox04
 #SBATCH --gres=gpu:2
 #SBATCH --cpus-per-task=28
 #SBATCH --mem-per-cpu=8G
@@ -40,6 +40,5 @@ srun \
              --max_batch_size 8 \
              --max_input_len 1024 \
              --max_seq_len 2048 \
-             --tp_size 2 \
              --output_dir ./models/gemma-4-31B-it-TRT_FP8_engine
     '

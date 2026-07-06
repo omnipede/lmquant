@@ -2,7 +2,7 @@
 #SBATCH --job-name=mopt_fp8
 #SBATCH --comment="Per tensor, per token FP8 quantization"
 #SBATCH --nodes=1
-#SBATCH --nodelist=nv178
+#SBATCH --nodelist=cubox02,cubox03,cubox04
 #SBATCH --cpus-per-task=32
 #SBATCH --mem-per-cpu=4G
 #SBATCH --output=logs/modelopt_quantize_%j.log
