@@ -1,12 +1,11 @@
 #!/bin/bash
-#SBATCH --job-name=awq
-#SBATCH --comment="AWQ quantization"
+#SBATCH --job-name=pcpt_fp8
+#SBATCH --comment="Per tensor, per token FP8 quantization"
 #SBATCH --nodes=1
-#SBATCH --nodelist=cubox01,cubox03
-#SBATCH --gres=gpu:4
-#SBATCH --cpus-per-task=112
+#SBATCH --nodelist=nv178
+#SBATCH --cpus-per-task=32
 #SBATCH --mem-per-cpu=4G
-#SBATCH --output=logs/quant_awq_%j.log
+#SBATCH --output=logs/quant_pcpt_%j.log
 
 echo "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX "
 echo "Job name:= " "$SLURM_JOB_NAME"
@@ -19,4 +18,4 @@ date
 # Huggingface cache directory
 export HF_HOME=./cache/hf
 
-srun python -m quant.llmcomp_awq
+srun python -m quant_llmcomp.llmcomp_fp8
